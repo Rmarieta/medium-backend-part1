@@ -33,6 +33,7 @@ def register_user():
 def list_users():
     try:
         users = db.session.query(User).all()
+        # calling the __str__ representation defined in the model 
         return jsonify([str(u) for u in users])
     except Exception as e:
         db.session.rollback()
